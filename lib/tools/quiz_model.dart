@@ -16,11 +16,7 @@ class QuizModel {
 }
 
 class LessonModel {
-  String lessonName;
   String lessonIcon;
-  List<QuizModel> lessonList;
-  LessonModel(
-      {required this.lessonName,
-      required this.lessonIcon,
-      required this.lessonList});
+  List<QuizModel> lessonList10;
+  LessonModel({required this.lessonIcon, required this.lessonList10});
 }

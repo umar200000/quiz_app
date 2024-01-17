@@ -32,14 +32,23 @@ class _QuizsPageState extends State<QuizsPage> {
                   QuizButton(
                     photoName: "English",
                     img: Images100.englishImg,
+                    index: 0,
                     onChange: (Size size) {
                       setState(() {
                         containerSize = size;
                       });
                     },
                   ),
-                  const QuizButton(photoName: "Math", img: Images100.mathImg),
-                  const QuizButton(photoName: "Dart", img: Images100.dartImg),
+                  const QuizButton(
+                    photoName: "Math",
+                    img: Images100.mathImg,
+                    index: 1,
+                  ),
+                  const QuizButton(
+                    photoName: "Dart",
+                    img: Images100.dartImg,
+                    index: 2,
+                  ),
                 ],
               ),
             ),

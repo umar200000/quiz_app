@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nodir_quiz/files/test_page.dart';
 
 import '../tools/size_calculator.dart';
 
@@ -7,10 +9,12 @@ class QuizButton extends StatelessWidget {
     super.key,
     required this.photoName,
     required this.img,
+    required this.index,
     this.onChange,
   });
   final String photoName;
   final String img;
+  final int index;
   final void Function(Size size)? onChange;
 
   @override
@@ -34,7 +38,12 @@ class QuizButton extends StatelessWidget {
               ],
             ),
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => TestPage(index: index)));
+              },
               padding: const EdgeInsets.symmetric(vertical: 24),
               child: Row(
                 children: [
