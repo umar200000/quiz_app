@@ -14,9 +14,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Future.delayed(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, CupertinoPageRoute(builder: (context) => MainPage())));
+            context, CupertinoPageRoute(builder: (context) => const MainPage())));
     super.initState();
   }
 

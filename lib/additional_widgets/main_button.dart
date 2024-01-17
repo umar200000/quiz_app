@@ -1,0 +1,68 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:nodir_quiz/tools/size_calculator.dart';
+
+import '../files/quizs_page.dart';
+
+class MainButton extends StatelessWidget {
+  const MainButton({
+    super.key,
+    required this.text,
+    required this.index,
+    this.onChange,
+  });
+
+  final String text;
+  final int index;
+  final void Function(Size size)? onChange;
+
+  @override
+  Widget build(BuildContext context) {
+    return MeasureSize(
+      onChange: onChange ?? (Size size) {},
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 47),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 13),
+          width: double.infinity,
+          decoration: BoxDecoration(boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(157, 87, 227, 0.25),
+              blurRadius: 13,
+              spreadRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ], color: Colors.white, borderRadius: BorderRadius.circular(14)),
+          child: MaterialButton(
+            padding: const EdgeInsets.only(top: 16, bottom: 26),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            onPressed: () {
+              switch (index) {
+                case 1:
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => const QuizsPage()));
+                  break;
+                case 2:
+                  break;
+                case 3:
+                  break;
+                case 4:
+                  break;
+              }
+            },
+            child: Text(
+              text,
+              style: const TextStyle(
+                  color: Color(0xff5B1CAE),
+                  fontSize: 35,
+                  fontWeight: FontWeight.w500),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
