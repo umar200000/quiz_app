@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/splesh_page.dart';
 
 main() {
-  print('umar uz');
   runApp(const MyApp());
 }
 
