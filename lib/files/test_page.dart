@@ -16,6 +16,7 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   int a = 0;
+  int a1 = 0;
   int index = 0;
   int number = 0;
   int cuntrolerIndex = 0;
