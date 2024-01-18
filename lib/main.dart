@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/splesh_page.dart';
 
 main() {
+  print('kkkkkkkk');
   runApp(const MyApp());
 }
 
