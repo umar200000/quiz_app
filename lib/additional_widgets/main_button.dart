@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nodir_quiz/helper_pages/about_page.dart';
+import 'package:nodir_quiz/helper_pages/history_page.dart';
+import 'package:nodir_quiz/helper_pages/setting_page.dart';
 import 'package:nodir_quiz/tools/size_calculator.dart';
 
 import '../files/quizs_page.dart';
@@ -46,10 +49,16 @@ class MainButton extends StatelessWidget {
                           builder: (context) => const QuizsPage()));
                   break;
                 case 2:
+                  showDialog(
+                      context: context, builder: (context) => SettingPage());
                   break;
                 case 3:
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => HistoryPage()));
                   break;
                 case 4:
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => AboutPage()));
                   break;
               }
             },
