@@ -7,6 +7,7 @@ import '../tools/size_calculator.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key, required this.index});
+
   final int index;
 
   @override
@@ -14,6 +15,8 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
+  int a = 0;
+  int a1 = 0;
   int index = 0;
   int number = 0;
   int cuntrolerIndex = 0;
@@ -21,6 +24,7 @@ class _TestPageState extends State<TestPage> {
   String answer = "";
   Size? containterSize;
   Size? questionSize;
+
   @override
   void initState() {
     index = widget.index;
