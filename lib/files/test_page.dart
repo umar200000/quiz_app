@@ -138,10 +138,12 @@ class _TestPageState extends State<TestPage> {
                               context,
                               CupertinoPageRoute(
                                   builder: (context) => WinPage(
-                                      sum: count,
-                                      length100: lessonList[index]
-                                          .lessonList10
-                                          .length)));
+                                        sum: count,
+                                        length100: lessonList[index]
+                                            .lessonList10
+                                            .length,
+                                        index: index,
+                                      )));
                         }
                         if (cuntrolerIndex <
                             lessonList[index].lessonList10.length - 1) {

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/splesh_page.dart';
+import "package:hive/hive.dart";
+import "package:hive_flutter/hive_flutter.dart";
 
-main() {
-  print('kkkkkkkk');
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox("history");
+  await Hive.openBox("history1");
   runApp(const MyApp());
 }
 

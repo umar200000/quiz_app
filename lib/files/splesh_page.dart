@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/main_page.dart';
+import 'package:nodir_quiz/hive_repo/hive_repo.dart';
 import 'package:nodir_quiz/tools/imag_class.dart';
 
 class SplashPage extends StatefulWidget {

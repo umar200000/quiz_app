@@ -8,4 +8,7 @@ class Images100 {
   static const mathImages = "assets/images/img_2.png";
   static const dartImages = "assets/images/img_3.png";
   static const resultImg = "assets/images/img_7.png";
+  static const historyEnglishImg = "assets/images/img_6.png";
+  static const historyMath = "assets/images/img_9.png";
+  static const historyDart = "assets/images/img_8.png";
 }
