@@ -6,9 +6,10 @@ import 'package:nodir_quiz/helper_pages/setting_page.dart';
 import 'package:nodir_quiz/tools/size_calculator.dart';
 
 import '../files/quizs_page.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class MainButton extends StatelessWidget {
-  const MainButton({
+  MainButton({
     super.key,
     required this.text,
     required this.index,
@@ -18,6 +19,7 @@ class MainButton extends StatelessWidget {
   final String text;
   final int index;
   final void Function(Size size)? onChange;
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -41,24 +43,35 @@ class MainButton extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             onPressed: () {
+              player.play(AssetSource("audio_player/interfes.mp3"));
               switch (index) {
                 case 1:
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => const QuizsPage()));
+                  Future.delayed(Duration(milliseconds: 300), () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => const QuizsPage()));
+                  });
                   break;
                 case 2:
-                  showDialog(
-                      context: context, builder: (context) => SettingPage());
+                  Future.delayed(Duration(milliseconds: 300), () {
+                    showDialog(
+                        context: context, builder: (context) => SettingPage());
+                  });
                   break;
                 case 3:
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => HistoryPage()));
+                  Future.delayed(Duration(milliseconds: 300), () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => HistoryPage()));
+                  });
                   break;
                 case 4:
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => AboutPage()));
+                  Future.delayed(Duration(milliseconds: 300), () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => AboutPage()));
+                  });
                   break;
               }
             },

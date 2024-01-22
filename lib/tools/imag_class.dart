@@ -1,3 +1,5 @@
+import 'package:audioplayers/audioplayers.dart';
+
 class Images100 {
   static const splashImg = "assets/images/img.png";
   static const englishImg = "assets/images/english.png.png";
@@ -12,3 +14,6 @@ class Images100 {
   static const historyMath = "assets/images/img_9.png";
   static const historyDart = "assets/images/img_8.png";
 }
+
+AudioPlayer player = AudioPlayer();
+int a = 0;

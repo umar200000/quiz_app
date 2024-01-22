@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nodir_quiz/hive_repo/hive_repo.dart';
 import 'package:nodir_quiz/tools/imag_class.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class HistoryPage extends StatefulWidget {
   HistoryPage({super.key});
@@ -22,6 +23,7 @@ class _HistoryPageState extends State<HistoryPage> {
   List<String> keysListDart = [];
   List<String> valueListDart = [];
   HiveRepo hiveRepo = HiveRepo();
+  final player = AudioPlayer();
 
   List<Widget> list = [
     Image.asset(
@@ -119,6 +121,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     ),
                     trailing: IconButton(
                       onPressed: () {
+                        player.play(AssetSource("audio_player/shuffle.mp3"));
                         deleteHistory(index);
                       },
                       icon: Icon(
@@ -139,6 +142,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 currentIndex: controller,
                 onTap: (index) {
                   setState(() {
+                    player.play(AssetSource("audio_player/correct.wav"));
                     controller = index;
                     deleteIndex();
                   });

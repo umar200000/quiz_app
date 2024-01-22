@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/test_page.dart';
 
 import '../tools/size_calculator.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class QuizButton extends StatelessWidget {
-  const QuizButton({
+  QuizButton({
     super.key,
     required this.photoName,
     required this.img,
@@ -16,6 +17,7 @@ class QuizButton extends StatelessWidget {
   final String img;
   final int index;
   final void Function(Size size)? onChange;
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +41,13 @@ class QuizButton extends StatelessWidget {
             ),
             child: MaterialButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                        builder: (context) => TestPage(index: index)));
+                player.play(AssetSource("audio_player/interfes.mp3"));
+                Future.delayed(Duration(milliseconds: 300), () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => TestPage(index: index)));
+                });
               },
               padding: const EdgeInsets.symmetric(vertical: 24),
               child: Row(

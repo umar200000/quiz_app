@@ -47,4 +47,10 @@ class HiveRepo {
 
     return map;
   }
+
+  saveBool(bool t) {
+    _box.put("music", t);
+  }
+
+  getBool() => _box.get("music", defaultValue: true);
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nodir_quiz/files/win_page.dart';
+import 'package:nodir_quiz/hive_repo/hive_repo.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:nodir_quiz/tools/model_list.dart';
 
+import '../tools/imag_class.dart';
 import '../tools/size_calculator.dart';
 
 class TestPage extends StatefulWidget {
@@ -24,9 +27,14 @@ class _TestPageState extends State<TestPage> {
   String answer = "";
   Size? containterSize;
   Size? questionSize;
+  bool t = false;
+  HiveRepo hiveRepo = HiveRepo();
+  final player100 = AudioPlayer();
+  final player1 = AudioPlayer();
 
   @override
   void initState() {
+    t = hiveRepo.getBool();
     index = widget.index;
     super.initState();
   }
@@ -115,12 +123,14 @@ class _TestPageState extends State<TestPage> {
                     onPressed: () {
                       setState(() {
                         if (answer == "") {
+                          player1.play(AssetSource("audio_player/error.mp3"));
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text("you must choice one answer"),
                             duration: Duration(seconds: 1),
                           ));
                           return;
                         }
+                        player1.play(AssetSource("audio_player/shuffle.mp3"));
                         checkList.add(answer);
                         answer = "";
                         number = 0;
@@ -163,6 +173,32 @@ class _TestPageState extends State<TestPage> {
                   ),
                 ],
               ),
+            ),
+            Positioned(
+              top: 30,
+              right: 10,
+              child: IconButton(
+                onPressed: () {
+                  setState(() {
+                    player100.play(AssetSource("audio_player/correct.wav"));
+                    t = !t;
+                    hiveRepo.saveBool(t);
+                    if (t) player.resume();
+                    player.pause();
+                  });
+                },
+                icon: t
+                    ? Icon(
+                        Icons.music_note,
+                        size: 40,
+                        color: Colors.blue,
+                      )
+                    : Icon(
+                        Icons.music_off,
+                        size: 40,
+                        color: Colors.blue,
+                      ),
+              ),
             )
           ],
         ),
@@ -196,6 +232,7 @@ class _TestPageState extends State<TestPage> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           onPressed: () {
             setState(() {
+              player100.play(AssetSource("audio_player/correct.wav"));
               number = n;
               answer = test;
             });

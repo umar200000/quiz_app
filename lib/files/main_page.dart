@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nodir_quiz/additional_widgets/main_button.dart';
+import 'package:nodir_quiz/hive_repo/hive_repo.dart';
 import 'package:nodir_quiz/tools/imag_class.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -11,6 +13,15 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   Size? containerSize;
+  HiveRepo hiveRepo = HiveRepo();
+
+  @override
+  void initState() {
+    if (hiveRepo.getBool()) {
+      player.play(AssetSource("audio_player/quiz_music.mp3"));
+      player.setReleaseMode(ReleaseMode.loop);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +55,9 @@ class _MainPageState extends State<MainPage> {
                       });
                     },
                   ),
-                  const MainButton(text: "Settings", index: 2),
-                  const MainButton(text: "History", index: 3),
-                  const MainButton(text: "About", index: 4),
+                  MainButton(text: "Settings", index: 2),
+                  MainButton(text: "History", index: 3),
+                  MainButton(text: "About", index: 4),
                 ],
               ),
             ),

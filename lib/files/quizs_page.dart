@@ -39,12 +39,12 @@ class _QuizsPageState extends State<QuizsPage> {
                       });
                     },
                   ),
-                  const QuizButton(
+                  QuizButton(
                     photoName: "Math",
                     img: Images100.mathImg,
                     index: 1,
                   ),
-                  const QuizButton(
+                  QuizButton(
                     photoName: "Dart",
                     img: Images100.dartImg,
                     index: 2,
