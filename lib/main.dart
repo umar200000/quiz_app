@@ -4,6 +4,7 @@ import "package:hive/hive.dart";
 import "package:hive_flutter/hive_flutter.dart";
 
 main() async {
+  int a = 0;
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox("history");
